@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Rut:" for="rut" />
+                    <h:inputText id="rut" value="#{aController.a.rut}" title="Rut" required="true" requiredMessage="The Rut field is required."/>
+                    <h:outputLabel value="Nombre:" for="nombre" />
+                    <h:inputText id="nombre" value="#{aController.a.nombre}" title="Nombre" />
+                    <h:outputLabel value="Apellido:" for="apellido" />
+                    <h:inputText id="apellido" value="#{aController.a.apellido}" title="Apellido" />
+                    <h:outputLabel value="CodigoCurso:" for="codigoCurso" />
+                    <h:selectOneMenu id="codigoCurso" value="#{aController.c.codigo}" title="CodigoCurso" required="true" requiredMessage="The CodigoCurso field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{cursoController.listar()}" var="c" itemLabel="#{c.nombre}" itemValue="#{c.codigo}"/>
+                   </h:selectOneMenu>
+                    <h:commandButton value="SAVE" action="#{aController.agregar()}" />
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+
+    </h:body>
+</html>
+
